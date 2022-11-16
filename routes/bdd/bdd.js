@@ -41,7 +41,7 @@ router.post("/signUp", async (req, resp) => {
 
     const userInfos = await signUp(data);
     if (!userInfos)
-        return resp.status(500).json({ message: `${email} existe déjà` });
+        return resp.status(500).json({ message: `${email} existe déjà ou n'est pas valable` });
 
     return resp.json(userInfos);
 });

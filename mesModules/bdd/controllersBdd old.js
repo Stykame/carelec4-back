@@ -34,7 +34,7 @@ async function checkUserIdExist(userId) {
 }
 
 async function signIn(email, passwd) {
-    const user = await User.find({ email, passwd, });
+    const user = await User.find({ email, passwd });
 
     if (user.length === 0)
         return null;
@@ -43,7 +43,7 @@ async function signIn(email, passwd) {
 }
 
 async function signUp({ nom, prenom, email, passwd, portable, adresse, ville, cp }) {
-    const isExistEmail = await User.find({ email, });
+    const isExistEmail = await User.find({ email });
     if (isExistEmail.length !== 0) {
         console.log("Email déjà utilisé")
         return null;
@@ -91,7 +91,7 @@ async function getCurrentRevision(userId) {
     if (!userInfos) {
         throw new Error("Impossible de trouver un utilisateur avec cette userId");
     }
-    
+
     const currentRevision = await Revision.find({ _id: userInfos.currentRevision });
 
     if (currentRevision.length === 0) {
@@ -120,7 +120,7 @@ async function updateCurrentRevision(userId, intitule, newValue) {
         }, {
             new: true,
         })
-    } catch(err) {
+    } catch (err) {
         // console.log(err.stack);
         return null;
     }
