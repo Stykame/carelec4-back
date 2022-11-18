@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { toConnectBdd } = require("../../config/db.js");
 const { User, Revision, Voiture } = require("./models.js");
 
 
@@ -259,15 +258,6 @@ async function addImgForTache(revisionId, tacheIntitule, newImg) {
 
     return currentRevision;
 }
-
-async function test() {
-    if (await toConnectBdd()) {
-        console.error(await signIn("bozlak.fatih@gmail.com2019926522", "w5d85qa2"));
-    }
-}
-
-if (process.argv[2] === "test")
-    test();
 
 module.exports = {
     signUp,
