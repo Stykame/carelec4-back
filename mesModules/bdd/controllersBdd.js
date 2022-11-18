@@ -59,8 +59,8 @@ async function signIn(email, passwd) {
 
 /* fonction de mise à jour des infos d'un utilisateur */
 async function updateUserInfos(email, newUserInfos) {
-    if (!(await isEmailExist(email)))
-        return null;
+    if (!(await isEmailExist(email)))  // si l'email existe déjà
+        return null;  // on quitte la fonction
 
     const userInfosUpdated = await User.findOneAndUpdate({ email, }, { $set: newUserInfos }, { new: true })
 
