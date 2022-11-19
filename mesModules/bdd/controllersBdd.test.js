@@ -55,7 +55,7 @@ beforeAll(async () => {
         usersData.push({
             nom: "Bozlak",
             prenom: "Fatih",
-            email: "bozlak.fatih@gmail.com" + Math.floor(Math.random() * 1E20),
+            email: "bozlak.fatih." + Math.floor(Math.random() * 1E20) + "@gmail.com",
             passwd: "w5d85qa2",
             portable: "0636679200",
             adresse: "16 rue de macon",
@@ -63,6 +63,7 @@ beforeAll(async () => {
             cp: "67100"
         })
     }
+    console.log(usersData)
 
     await toConnectBdd();
     await User.deleteMany({});
